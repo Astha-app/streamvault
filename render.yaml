@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: streamvault-api
+    env: node
+    region: oregon
+    plan: free
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: REALDEBRID_API_TOKEN
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: REALDEBRID_CACHE_TTL_MINUTES
+        value: "60"
