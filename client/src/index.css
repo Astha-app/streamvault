@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+  /* Focus visible ring */
+  :focus-visible { outline: 2px solid #e50914; outline-offset: 2px; }
+
+  /* Safe area support (mobile notch) */
+  .safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 8px); }
+}
+
+@layer components {
+  /* Custom video subtitle styling via ::cue */
+  video::cue {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Prevent text selection on drag */
+  .no-select { user-select: none; }
+}
