@@ -33,8 +33,8 @@ app.use((_req, res) => {
 // Central error handler
 app.use(errorHandler);
 
-app.listen(PORT, '127.0.0.1', () => {
-  logger.info(`Server running on http://127.0.0.1:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  logger.info(`Server running on http://0.0.0.0:${PORT}`);
   logger.info(`Real-Debrid token configured: ${Boolean(process.env.REALDEBRID_API_TOKEN)}`);
 });
 
